@@ -1,8 +1,10 @@
 import math as m 
 import decimal as d
+import time
 tal=1
 primLista=[2] # Anta första primtalet
 antal=int(input("Hur många primtal? "))
+st=time.time()
 while True:
     tal+=2 # Alla primtal är udda, så vi kan sortera bort alla tal delbara med 2
     antalTal=len(primLista)
@@ -23,6 +25,6 @@ d.getcontext().prec=m.ceil(antal**0.5) # Bestäm antal decimaler för ökad säk
 pi=d.Decimal(1)
 for i in range (len(primLista)):
     pi*=d.Decimal(1)/(d.Decimal(1)-d.Decimal(primLista[i]**(-2))) # Uppskatta pi som en produkt av alla primtalen
+et=time.time()
 print((6*pi)**d.Decimal(0.5)) # Skriv ut pi
-
-
+print("Time elapsed: ", et-st)
